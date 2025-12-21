@@ -1,7 +1,7 @@
 ---
-title: Lemon Herb Roasted Chicken
+title: mexico
 description: A juicy roasted chicken infused with zesty lemon and fragrant herbs, perfect for a family dinner.
-image: "@assets/recipes/herb-chicken.jpg"
+image: "@assets/recipes//mexico.jpg"
 author: jane-doe
 prepTime: 90
 servings: 4

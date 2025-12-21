@@ -1,7 +1,7 @@
 ---
-title: Veggie Stir-Fry with Tofu
+title: tailandia
 description: A vibrant, healthy stir-fry featuring crispy tofu and colorful vegetables, tossed in a savory sauce.
-image: "@assets/recipes/veggie-stir-fry.jpg"
+image: "@assets/recipes/thailand.jpg"
 author: jane-doe
 prepTime: 40
 servings: 4

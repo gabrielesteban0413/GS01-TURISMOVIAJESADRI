@@ -1,7 +1,7 @@
 ---
-title: Creamy Mushroom Risotto
+title: españa
 description: A rich and comforting risotto made with earthy mushrooms and creamy Parmesan.
-image: "@assets/recipes/mushroom-risotto.jpg"
+image: "@assets/recipes/españa.jpg"
 author: jane-doe
 prepTime: 45
 servings: 4

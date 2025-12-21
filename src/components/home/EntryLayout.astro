@@ -34,8 +34,7 @@ const { image, imageAlt, title, content, button } = entry.data;
               
             )
           }
-          <h1 set:html={markdownify(title)} class="mb-4" />
-          <p set:html={markdownify(content)} class="mb-8" />
+
           {
             button && (
               <Button
@@ -51,4 +50,18 @@ const { image, imageAlt, title, content, button } = entry.data;
       </div>
     </div>
   </section>
+
+  <section class="flex container justify-center my-8">
+    <div class="col md:col-12">
+       <div class="flex container row justify-center">
+        <div class="col lg:col-12">
+         <div class="glass rounded-lg p-4 intersect:animate-fadeUp opacity-0">
+            <h1 set:html={markdownify(title)} class="mb-4" />
+            <p set:html={markdownify(content)} class="mb-8" />
+         </div>
+       </div>
+    </div>
+    </div>
+  </section>
+
 </BaseLayout>
