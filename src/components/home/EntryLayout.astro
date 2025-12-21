@@ -10,11 +10,34 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { image, imageAlt, title, content, button } = entry.data;
+const { 
+  image, 
+  imageAlt, 
+  title, 
+  content, 
+  button,
+  aboutTitle,
+  aboutImage,
+  aboutImageAlt,
+  aboutContent 
+} = entry.data;
+
+// Usar aboutTitle como título principal o el título normal
+const pageTitle = aboutTitle || title;
+const pageDescription = entry.data.aboutDescription || entry.data.description;
 ---
 
-<BaseLayout>
-  <!-- Banner -->
+<BaseLayout 
+
+
+  title={pageTitle} 
+  description={pageDescription} 
+  image={aboutImage?.src || image?.src}
+
+  
+>
+
+  <!-- Banner principal -->
   <section class="section">
     <div class="container">
       <div class="row justify-center">
@@ -23,15 +46,14 @@ const { image, imageAlt, title, content, button } = entry.data;
             image && (
               <div class="blur-[0px]">
                 <Image
-                class="mb-6 w-64"
-                src={image}
-                alt={imageAlt}
-                width={1024}
-                height={1024}
-                loading="eager"
-              />
+                  class="mb-6 w-64"
+                  src={image}
+                  alt={imageAlt}
+                  width={1024}
+                  height={1024}
+                  loading="eager"
+                />
               </div>
-              
             )
           }
 
@@ -51,17 +73,46 @@ const { image, imageAlt, title, content, button } = entry.data;
     </div>
   </section>
 
+
+
+  <!-- Sección About integrada -->
+  {aboutTitle && aboutContent && (
+    <section class="section-sm">
+      <div class="container">
+        <div class="row justify-center">
+          <div class="glass rounded-lg text-center p-8 md:col-12 lg:col-11 intersect:animate-fadeUp opacity-0 intersect-no-queue">
+            {
+              aboutImage && (
+                <Image
+                  class="mx-auto mb-6 rounded-lg w-100"
+                  src={aboutImage}
+                  alt={aboutImageAlt}
+                  width={1024}
+                  height={1024}
+                  loading="eager"
+                />
+              )
+            }
+            <h2 set:html={markdownify(title)} class="h3 mb-6" />
+            <div set:html={markdownify(content)} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- Contenido principal -->
   <section class="flex container justify-center my-8">
     <div class="col md:col-12">
-       <div class="flex container row justify-center">
+      <div class="flex container row justify-center">
         <div class="col lg:col-12">
-         <div class="glass rounded-lg p-4 intersect:animate-fadeUp opacity-0">
-            <h1 set:html={markdownify(title)} class="mb-4" />
-            <p set:html={markdownify(content)} class="mb-8" />
-         </div>
-       </div>
-    </div>
+          <div class="glass rounded-lg p-4 intersect:animate-fadeUp opacity-0">
+            <h1 set:html={markdownify(aboutTitle)} class="mb-4" />
+            <p set:html={markdownify(aboutContent)} class="mb-8" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+  )}
 
 </BaseLayout>
